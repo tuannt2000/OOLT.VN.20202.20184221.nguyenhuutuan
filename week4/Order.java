@@ -35,41 +35,43 @@ public class Order {
     }
 
     public void addDigitalVideoDiscmang(DigitalVideoDisc[] disc){
-        itemsOrdered = disc;
-         while(cont){
-            dem++;
-            stt++;
-            System.out.println(stt + ". DVD - " + disc[dem-1].getTitle() + " - " + disc[dem-1].getCategory() + " - " + disc[dem-1].getDirector() + " - " + disc[dem-1].getLength() + " - " + disc[dem-1].getCost());
-            qtyOrdered();
-            if(dem>3){
-                int chon;
-                int nhapDVD;
-                boolean a=true;
-                System.out.println("Bạn có muốn xóa 1 DVD đã chọn để thay thế DVD này");
-                System.out.println("1.có\n2.không");  
-               do{
-                System.out.print("Bạn chọn: "); chon=sc.nextInt();
-                switch(chon){
-                    case 1:
-                    System.out.print("Nhập DVD bạn muốn xóa: "); nhapDVD=sc.nextInt();
-                    removeDigitalVideoDisc(disc[nhapDVD-1]);
-                    System.out.println("DVD" + nhapDVD + " đã xóa khỏi danh sách");
-                    System.out.println("DVD"+ stt + " đã được thêm vào danh sách");
-                    a = false;
-                    break;
-                    case 2:
-                    System.out.println("DVD" + stt +" đã xóa khỏi danh sách");
-                    a = false;
-                    dem--;
-                    break;
-                    default:
-                    System.out.println("Bạn chọn sai, hãy chọn lại");
-                    break;
+         if(nbOrder<=MAX_LIMITTED_ORDERS){
+            itemsOrdered = disc;
+             while(cont){
+                dem++;
+                stt++;
+                System.out.println(stt + ". DVD - " + disc[dem-1].getTitle() + " - " + disc[dem-1].getCategory() + " - " + disc[dem-1].getDirector() + " - " + disc[dem-1].getLength() + " - " + disc[dem-1].getCost());
+                qtyOrdered();
+                if(dem>3){
+                    int chon;
+                    int nhapDVD;
+                    boolean a=true;
+                    System.out.println("Bạn có muốn xóa 1 DVD đã chọn để thay thế DVD này");
+                    System.out.println("1.có\n2.không");  
+                   do{
+                    System.out.print("Bạn chọn: "); chon=sc.nextInt();
+                    switch(chon){
+                        case 1:
+                        System.out.print("Nhập DVD bạn muốn xóa: "); nhapDVD=sc.nextInt();
+                        removeDigitalVideoDisc(disc[nhapDVD-1]);
+                        System.out.println("DVD" + nhapDVD + " đã xóa khỏi danh sách");
+                        System.out.println("DVD"+ stt + " đã được thêm vào danh sách");
+                        a = false;
+                        break;
+                        case 2:
+                        System.out.println("DVD" + stt +" đã xóa khỏi danh sách");
+                        a = false;
+                        dem--;
+                        break;
+                        default:
+                        System.out.println("Bạn chọn sai, hãy chọn lại");
+                        break;
+                    }
+                   }while(a);
                 }
-               }while(a);
-            }
-            if(stt == disc.length) cont=false;
-         }      
+                if(stt == disc.length) cont=false;
+             }  
+          }else System.out.println("Đã quá giới hạn cho phép");    
     }
 
     public float totalCost(DigitalVideoDisc[] disc){
