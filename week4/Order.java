@@ -7,7 +7,7 @@ public class Order {
     public static int nbOrder;
     private DigitalVideoDisc itemsOrdered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
     int dem=0;
-    int count=0;
+    int stt=0;
     boolean cont=true;
     Scanner sc = new Scanner(System.in);
 
@@ -38,8 +38,8 @@ public class Order {
         itemsOrdered = disc;
          while(cont){
             dem++;
-            count++;
-            System.out.println(count + ". DVD - " + disc[dem-1].getTitle() + " - " + disc[dem-1].getCategory() + " - " + disc[dem-1].getDirector() + " - " + disc[dem-1].getLength() + " - " + disc[dem-1].getCost());
+            stt++;
+            System.out.println(stt + ". DVD - " + disc[dem-1].getTitle() + " - " + disc[dem-1].getCategory() + " - " + disc[dem-1].getDirector() + " - " + disc[dem-1].getLength() + " - " + disc[dem-1].getCost());
             qtyOrdered();
             if(dem>3){
                 int chon;
@@ -54,11 +54,11 @@ public class Order {
                     System.out.print("Nhập DVD bạn muốn xóa: "); nhapDVD=sc.nextInt();
                     removeDigitalVideoDisc(disc[nhapDVD-1]);
                     System.out.println("DVD" + nhapDVD + " đã xóa khỏi danh sách");
-                    System.out.println("DVD"+ count + " đã được thêm vào danh sách");
+                    System.out.println("DVD"+ stt + " đã được thêm vào danh sách");
                     a = false;
                     break;
                     case 2:
-                    System.out.println("DVD" + count +" đã xóa khỏi danh sách");
+                    System.out.println("DVD" + stt +" đã xóa khỏi danh sách");
                     a = false;
                     dem--;
                     break;
@@ -68,7 +68,7 @@ public class Order {
                 }
                }while(a);
             }
-            if(count == disc.length) cont=false;
+            if(stt == disc.length) cont=false;
          }      
     }
 
