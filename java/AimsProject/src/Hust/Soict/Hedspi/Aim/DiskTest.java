@@ -38,12 +38,18 @@ public class DiskTest {
                     order.show();
                     break;
                 case 2:
-                    DigitalVideoDisc d1 = new DigitalVideoDisc("HARRY agdkjh áhdkja Potter", "Animation", "Roger Allers", 11, 77.95f);
-                    System.out.println(d1.search("Harry Potter"));
-                    DigitalVideoDisc d2 = new DigitalVideoDisc("HARRY Potter", "Animation", "Roger Allers", 11, 77.95f);
-                    System.out.println(d2.search("Harry Potter"));
-                    DigitalVideoDisc d3 = new DigitalVideoDisc("HARRY sjydkhao", "Animation", "Roger Allers", 11, 77.95f);
-                    System.out.println(d3.search("Harry Potter"));
+                    DigitalVideoDisc itemsOrdered[] = order.getDvdList();
+                    int count = 0;
+                    System.out.print("Nhập tiêu đề muốn tìm: "); 
+                    String td = sc.nextLine();
+                    System.out.println("Những dvd chứa tiêu đề " + td + " : ");
+                    for(int i = 0; i < itemsOrdered.length ; i++){
+                        if(itemsOrdered[i].search(td) == true){
+                            System.out.println(itemsOrdered[i].getTitle() + " - " + itemsOrdered[i].getCategory() + " - " + itemsOrdered[i].getDirector() + " - " + itemsOrdered[i].getLength() + " - " + itemsOrdered[i].getCost());
+                            count++;
+                        }
+                    }
+                    if(count == 0) System.out.println("Không có dvd nào chứa tiêu đề " + td);
                     break;
                 case 3:
                     DigitalVideoDisc itemsOrdered[] = order.getDvdList();
