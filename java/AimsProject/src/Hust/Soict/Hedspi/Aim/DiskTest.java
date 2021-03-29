@@ -29,7 +29,8 @@ public class DiskTest {
             System.out.println("1. Hiện thị danh sách đơn hàng."); 
             System.out.println("2. Tìm kiếm title."); 
             System.out.println("3. dvd lucky."); 
-            System.out.println("4. Thoát."); 
+            System.out.println("4. Tính tổng tiền."); 
+            System.out.println("5. Thoát."); 
             System.out.print("Bạn chọn: "); 
             select=sc.nextInt();
             switch(select) {
@@ -47,9 +48,13 @@ public class DiskTest {
                 case 3:
                     DigitalVideoDisc itemsOrdered[] = order.getDvdList();
                     System.out.println("dvd may mắn được free");
+                    order.random();
                     System.out.println(order.getALuckyItem().getTitle() + " - " + order.getALuckyItem().getCategory() + " - " + order.getALuckyItem().getDirector() + " - " + order.getALuckyItem().getLength() + " - " + order.getALuckyItem().getCost());
                     break;
                 case 4:
+                    System.out.println("Tổng tiền: " + order.totalCost()); 
+                    break;
+                case 5:
                     System.out.println("Xin chào tạm biệt!");
                     check = false;
                     break;
