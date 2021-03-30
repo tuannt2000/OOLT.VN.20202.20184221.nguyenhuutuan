@@ -33,6 +33,7 @@ public class DiskTest {
             System.out.println("5. Thoát."); 
             System.out.print("Bạn chọn: "); 
             select=sc.nextInt();
+            sc.nextLine();
             switch(select) {
                 case 1:
                     order.show();
@@ -52,7 +53,6 @@ public class DiskTest {
                     if(count == 0) System.out.println("Không có dvd nào chứa tiêu đề " + td);
                     break;
                 case 3:
-                    DigitalVideoDisc itemsOrdered[] = order.getDvdList();
                     System.out.println("dvd may mắn được free");
                     order.random();
                     System.out.println(order.getALuckyItem().getTitle() + " - " + order.getALuckyItem().getCategory() + " - " + order.getALuckyItem().getDirector() + " - " + order.getALuckyItem().getLength() + " - " + order.getALuckyItem().getCost());
