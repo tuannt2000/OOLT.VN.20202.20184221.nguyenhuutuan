@@ -47,7 +47,6 @@ public class Aims {
         
         Scanner sc = new Scanner(System.in);
         boolean check = true;
-        boolean checkcase1 = false;
         boolean checkcase2 = false;
         int select;
         do {
@@ -65,18 +64,20 @@ public class Aims {
             sc.nextLine();
             switch(select) {
                 case 1:
-                    createOrder();
-                    checkcase1 = true;
+                    if(createOrder() == null){
+                        break;
+                    } else{
+                        order.removeItem(itemsOrdered);
+                        checkcase2 = false;
+                    }
                     break;
                 case 2:
-                    if(checkcase1){
-                        order.addItem(dvd1);
-                        order.addItem(bk1, dvd2);
-                        order.addItem(bk2, dvd3);
-                        order.addItem(items);
-                        order.randomLuckyItem();
-                        checkcase2 = true;
-                    }else {System.out.println("Please choose 1 first");}
+                    order.addItem(dvd1);
+                    order.addItem(bk1, dvd2);
+                    order.addItem(bk2, dvd3);
+                    order.addItem(items);
+                    order.randomLuckyItem();
+                    checkcase2 = true;
                     break;
                 case 3:
                     if(checkcase2){
