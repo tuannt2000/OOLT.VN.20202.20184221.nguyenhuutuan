@@ -18,6 +18,7 @@ public class Aims {
     }
     public static void main(String[] args) {  
         Order order = new Order();
+        ArrayList <Media> itemsOrdered = order.getItemsOrdered();
         ArrayList <Media> items = new ArrayList<Media>();
         DigitalVideoDisc dvd1 = new DigitalVideoDisc(1,"The Lion King", "Animation", "Roger Allers", 11, 77.9f);
         Book bk1 = new Book(2,"Star Wars", "Science Fiction", 88.7f);
