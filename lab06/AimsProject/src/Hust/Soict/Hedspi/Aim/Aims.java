@@ -37,6 +37,11 @@ public class Aims {
         bk4.addAuthor("tuan");
         bk4.addAuthor("nguyen");
         bk5.addAuthor("tuan");
+        items.add(dvd1);
+        items.add(dvd1);
+        items.add(dvd2);
+        items.add(bk2);
+        items.add(dvd3);
         items.add(bk3);
         items.add(dvd4);
         items.add(bk4);
@@ -73,10 +78,11 @@ public class Aims {
                     }
                     break;
                 case 2:
-                    order.addItem(dvd1);
-                    order.addItem(bk1, dvd2);
-                    order.addItem(bk2, dvd3);
-                    order.addItem(items);
+                     System.out.print("How many items do you want to add: "); int it = sc.nextInt();
+                    for(int i = 0; i < it ; i++){
+                        System.out.print("enter the id code: "); int id = sc.nextInt();
+                        order.addItembyid(id,items);
+                    }
                     order.randomLuckyItem();
                     checkcase2 = true;
                     break;
