@@ -78,14 +78,13 @@ public class Aims {
                     }
                     break;
                 case 2:
-                     System.out.print("How many items do you want to add: "); int it = sc.nextInt();
-                    for(int i = 0; i < it ; i++){
+                    System.out.print("How many items do you want to add: "); int it = sc.nextInt();
+                    do{
                         System.out.print("enter the id code: "); int id = sc.nextInt();
                         order.addItembyid(id,items);
-                    }
+                    }while(itemsOrdered.size() != it);
                     order.randomLuckyItem();
                     checkcase2 = true;
-                    break;
                 case 3:
                     if(checkcase2){
                         System.out.print("Enter the Id you want to delete: "); int id = sc.nextInt();
