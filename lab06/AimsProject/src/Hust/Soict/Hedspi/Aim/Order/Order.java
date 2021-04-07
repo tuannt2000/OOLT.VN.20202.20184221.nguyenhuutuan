@@ -56,12 +56,31 @@ public class Order {
             addItem(items.get(i));
         }
     }
+    
+    public void addItembyid(int id,ArrayList<Media> items ){
+        int count = 0;
+        for(int i = 0; i<items.size(); i++){
+            if(items.get(i).getId() == id){
+                verifyOrderedItem();
+                if (itemsOrdered.size() < MAX_NUMBERS_ORDERED_ITEMS){
+                    itemsOrdered.add(items.get(i));
+                }
+                count ++;
+                break;
+            }
+        }
+        if(count == 0) System.out.println("Does not exist");
+    }
 
     public void removeItem(Media item ){
         if(itemsOrdered.contains(item) == true){
             itemsOrdered.remove(item);
             System.out.println("removed from the list");
         } else System.out.println("Does not exist");
+    }
+    
+     public void removeItem(ArrayList<Media> items ){
+       items.clear();
     }
 
     public void removeItembyid(int id){
@@ -100,9 +119,7 @@ public class Order {
         
     public void randomLuckyItem() {
         int range = 10;
-        int max = 10;
-        int min = itemsOrdered.size();
         this.luckyItem = (int) (Math.random() * range);
-        if(luckyItem >= itemsOrdered.size()) luckyItem -= (max - min);
+        if(luckyItem >= itemsOrdered.size()) this.luckyItem = itemsOrdered.size() - 1;
     }
 }

@@ -18,6 +18,7 @@ public class Aims {
     }
     public static void main(String[] args) {  
         Order order = new Order();
+        ArrayList <Media> itemsOrdered = order.getItemsOrdered();
         ArrayList <Media> items = new ArrayList<Media>();
         DigitalVideoDisc dvd1 = new DigitalVideoDisc(1,"The Lion King", "Animation", "Roger Allers", 11, 77.9f);
         Book bk1 = new Book(2,"Star Wars", "Science Fiction", 88.7f);
@@ -36,6 +37,11 @@ public class Aims {
         bk4.addAuthor("tuan");
         bk4.addAuthor("nguyen");
         bk5.addAuthor("tuan");
+        items.add(dvd1);
+        items.add(dvd1);
+        items.add(dvd2);
+        items.add(bk2);
+        items.add(dvd3);
         items.add(bk3);
         items.add(dvd4);
         items.add(bk4);
@@ -47,7 +53,6 @@ public class Aims {
         
         Scanner sc = new Scanner(System.in);
         boolean check = true;
-        boolean checkcase1 = false;
         boolean checkcase2 = false;
         int select;
         do {
@@ -65,19 +70,21 @@ public class Aims {
             sc.nextLine();
             switch(select) {
                 case 1:
-                    createOrder();
-                    checkcase1 = true;
+                    if(createOrder() == null){
+                        break;
+                    } else{
+                        order.removeItem(itemsOrdered);
+                        checkcase2 = false;
+                    }
                     break;
                 case 2:
-                    if(checkcase1){
-                        order.addItem(dvd1);
-                        order.addItem(bk1, dvd2);
-                        order.addItem(bk2, dvd3);
-                        order.addItem(items);
-                        order.randomLuckyItem();
-                        checkcase2 = true;
-                    }else {System.out.println("Please choose 1 first");}
-                    break;
+                    System.out.print("How many items do you want to add: "); int it = sc.nextInt();
+                    do{
+                        System.out.print("enter the id code: "); int id = sc.nextInt();
+                        order.addItembyid(id,items);
+                    }while(itemsOrdered.size() != it);
+                    order.randomLuckyItem();
+                    checkcase2 = true;
                 case 3:
                     if(checkcase2){
                         System.out.print("Enter the Id you want to delete: "); int id = sc.nextInt();
