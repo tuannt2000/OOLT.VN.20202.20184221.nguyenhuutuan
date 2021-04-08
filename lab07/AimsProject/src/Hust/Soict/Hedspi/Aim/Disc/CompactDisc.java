@@ -1,7 +1,7 @@
 package Disc;
 import java.util.ArrayList;
 
-public class CompactDisc extends Disc implements Playable {
+public class CompactDisc extends Disc implements playable {
     private String artist;
     private ArrayList<Track> tracks = new ArrayList<>();
 
@@ -41,11 +41,13 @@ public class CompactDisc extends Disc implements Playable {
         this.artist = artist;
     }
 
-    public CompactDisc(int id, String title, String category, float cost, String director, int length, String artist) {
-        super(id, title, category, cost, director, length);
+    public CompactDisc(int id, String title, String category, float cost, String director, String artist,ArrayList<Track> tracks) {
+        super(id, title, category, cost, director);
         this.artist = artist;
+        this.tracks = tracks;
     }
 
+    @Override
     public void play(){
         for(int i = 0; i<tracks.size() ; i++){
             System.out.println("Playing CD: " + tracks.get(i).getTitle());
