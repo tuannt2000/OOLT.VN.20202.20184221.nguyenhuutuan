@@ -17,6 +17,8 @@ public class CompactDisc extends Disc implements Playable {
         super.length = sumlength;
         return super.length;
     }
+    
+    public void unknown() {};
 
     public void addTrack(Track track){
         if(tracks.contains(track)){
