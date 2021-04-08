@@ -160,7 +160,7 @@ public class Order {
                 Track track = new Track(titletrask,lengthtrack);
                 tracks.add(track);
             }
-            CompactDisc cd = new CompactDisc(id,title,category,cost,director,artist);
+            CompactDisc cd = new CompactDisc(id,title,category,cost,director,artist,tracks);
             cd.getLength(tracks);
             itemsOrdered.add(cd);
             System.out.println("Do you want to play?\n1.Yes  2.No");
