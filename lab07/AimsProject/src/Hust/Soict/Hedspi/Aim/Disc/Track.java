@@ -1,6 +1,6 @@
 package Disc;
 
-public class Track implements Playable{
+public class Track implements playable{
     private  String title;
     private  int length;
     
@@ -17,6 +17,7 @@ public class Track implements Playable{
         this.length = length;
     }
 
+    @Override
     public void play() {
         System.out.println("Playing Track: " + this.getTitle());
         System.out.println("Track length: " + this.getLength());
