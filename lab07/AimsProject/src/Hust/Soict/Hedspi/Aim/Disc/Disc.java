@@ -1,10 +1,6 @@
 package Disc;
 import Media.*;
 
-interface Playable{
-    public void play();
-}
-
 public class Disc extends Media {
     protected String director;
     protected int length;
