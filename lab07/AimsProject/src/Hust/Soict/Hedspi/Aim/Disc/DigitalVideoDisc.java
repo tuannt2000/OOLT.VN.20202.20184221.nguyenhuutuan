@@ -1,6 +1,6 @@
 package Disc;
 
-public class DigitalVideoDisc extends Disc implements Playable {
+public class DigitalVideoDisc extends Disc implements playable {
     public DigitalVideoDisc(String director, int length) {
         super(director, length);
     }
@@ -18,6 +18,7 @@ public class DigitalVideoDisc extends Disc implements Playable {
         return "DVD.ID: " + getId() + "- Title: " + getTitle() + ", Category: " + getCategory() + ", Director: " + getDirector() + ", Length: " + getLength() + ", Price: "+ getCost();
     }
 
+    @Override
     public void play() {
         System.out.println("Playing DVD: " + this.getTitle());
         System.out.println("DVD length: " + this.getLength());
